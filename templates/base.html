@@ -1,0 +1,92 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>SPECTRA Advertisment</title>
+  {% block meta %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Freelanced graphic designer. Printing, offset and digital. Print adverts. Advertising materials. Print advertisemnet. Star advertiser.">
+  <meta name="keywords" content="advertisment, advertising, graphic design, leaflets, posters, catalogues, business cards, printed adverisement, calendars, flyers, souvenirs, logos, calendars.">
+  {% endblock %}
+
+  {% block extra_meta %}
+  {% endblock %}
+
+  {% block corecss %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  {% endblock %}
+
+
+  {% block extra_css %}
+  {% endblock %}
+
+  {% block corejs %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  {% endblock %}
+
+  {% block extra_js %}
+  {% endblock %}
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <!-- Logo -->
+        <a class="navbar-brand" href="{% url 'home' %}">
+          <img src="{% static 'images/comp_white.png' %}" alt="Logo">
+        </a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <!-- Authentication Links -->
+          {% if user.is_authenticated %}
+              <form method="post" action="{% url 'logout' %}" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-link navbar-btn"><span class="glyphicon glyphicon-log-out"></span> Logout</button>
+              </form>
+            </li>
+          {% else %}
+            <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href="{% url 'account:signup' %}"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+            <li>
+            {% endif %}
+          <!-- Navigation Links -->
+          <li class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}"><a href="{% url 'home' %}">HOME</a></li>
+          <li><a href="#portfolio">PRODUCTS</a></li>
+          <li class="{% if request.resolver_match.url_name == 'order' %}active{% endif %}"><a href="{% url 'order_home' %}">ORDER</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+
+<div class="jumbotron text-center">
+  <h1>SPECTRA</h1> 
+  <h3>Advertising agency</h3>
+</div>
+{% block content %}
+{% endblock %}
+<footer class="container-fluid text-center">
+  <ul id="social-networks">
+    <li><a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Visit our Facebook page (opens in a new tab)"><i class="fa fa-facebook-square"></i></a></li>
+    <li><a href="https://www.twitter.com/" target="_blank" rel="noopener" aria-label="Visit our Twitter page (opens in a new tab)"><i class="fa fa-twitter-square"></i></a></li>
+    <li><a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="Visit our YouTube page (opens in a new tab)"><i class="fa fa-youtube-square"></i></a></li>
+    <li><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Visit our Instagram page (opens in a new tab)"><i class="fa fa-instagram"></i></a></li>
+  </ul>
+</footer>
+</body>
+</html>
