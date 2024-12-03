@@ -23,7 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-@8rg&knt2r#g%1ns-nxnw%9p&$i3$(-slgb2_d=_ldg5=aekf#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# Other settings...
 DEBUG = True
+
 
 ALLOWED_HOSTS = ['8000-kamenco-spectra-7qodzt6m82x.ws.codeinstitute-ide.net']
 
@@ -133,3 +135,9 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-kamenco-spectra-7qodzt6m82x.ws.codeinstitute-ide.net'
+]
+
+LOGIN_REDIRECT_URL = '/account/profile/'
