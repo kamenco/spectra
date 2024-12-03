@@ -23,7 +23,5 @@ urlpatterns = [
     path('', include('home.urls')),  # Include home app URLs
     path('order/', include('order.urls')),
     path('account/', include('account.urls')),
-    path('checkout/', include('checkout.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('upload/', include('upload.urls')),
 ]
