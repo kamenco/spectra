@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from checkout.models import Order
 # Create your views here.
 # account/views.py
 
@@ -16,7 +17,7 @@ def signup(request):
             return redirect('account:profile')  # Redirect to profile after signup
     else:
         form = UserCreationForm()
-    return render(request, 'account/account-signup.html', {'form': form})
+    return render(request, 'registration/account-signup.html', {'form': form})
 
 # Profile view
 
@@ -30,4 +31,4 @@ def signup(request):
 def profile(request):
     # Fetch all orders for the logged-in user and include related completed work
     orders = Order.objects.filter(user=request.user).select_related('completed_work')
-    return render(request, 'account/profile.html', {'orders': orders})
+    return render(request, 'registration/profile.html', {'orders': orders})
