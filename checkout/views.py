@@ -2,10 +2,10 @@ import stripe
 from django.shortcuts import render, redirect
 from django.conf import settings
 from django.http import JsonResponse
-from avertise.checkout.models import Order
+from checkout.models import Order
 from django.contrib.auth.decorators import login_required
 
-# Create your views here.
+
 
 # Initialize Stripe
 stripe.api_key = settings.STRIPE_SECRET_KEY
