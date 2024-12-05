@@ -10,7 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
 from pathlib import Path
+import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,11 +26,23 @@ SECRET_KEY = 'django-insecure-@8rg&knt2r#g%1ns-nxnw%9p&$i3$(-slgb2_d=_ldg5=aekf#
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # Other settings...
-DEBUG = True
+
+DEBUG = os.getenv('DEBUG') == 'True'
 
 
 ALLOWED_HOSTS = ['8000-kamenco-spectra-7qodzt6m82x.ws.codeinstitute-ide.net']
 
+# Retrieve the SECRET_KEY
+SECRET_KEY = os.getenv('SECRET_KEY')
+
+if not SECRET_KEY:
+    raise ImproperlyConfigured("The SECRET_KEY must not be empty.")
+
+
+# stripe keys
+
+STRIPE_PUBLIC_KEY=os.getenv('STRIPE_PUBLIC_KEY')
+STRIPE_SECRET_KEY=os.getenv('STRIPE_SECRET_KEY')
 
 # Application definition
 
