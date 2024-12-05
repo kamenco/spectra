@@ -52,7 +52,7 @@ def checkout(request):
     
     # Render checkout.html...
 
-    return render(request, 'checkout.html', context)
+    return render(request, 'checkout/checkout.html', context)
 
 
 def success(request):
@@ -82,7 +82,7 @@ def success(request):
 
 
      # Pass data to the success.html template
-    return render(request, 'success.html', {
+    return render(request, 'checkout/success.html', {
         'message': 'Your payment was successful!',
         'order_type': order_type,
         'description': description,
