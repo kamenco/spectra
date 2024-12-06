@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 
-  # Register the namespace
+  # Register the urls
 
 urlpatterns = [
     path('upload/<int:order_id>/', views.upload_completed_work, name='upload_completed_work'),
