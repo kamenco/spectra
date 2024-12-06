@@ -14,7 +14,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('account:profile')  # Redirect to profile after signup
+            return redirect('profile')  # Redirect to profile after signup
     else:
         form = UserCreationForm()
     return render(request, 'registration/account-signup.html', {'form': form})

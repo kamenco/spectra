@@ -15,7 +15,7 @@ def upload_completed_work(request, order_id):
         if form.is_valid():
             form.save()
             # Redirect to the user's profile page after successful upload
-            return redirect('account:profile')  # Ensure this namespace matches your URLs
+            return redirect('profile')  # Ensure this namespace matches your URLs
     else:
         form = CompletedWorkForm(instance=completed_work)
     return render(request, 'upload/upload_completed_work.html', {'form': form, 'order': order})
