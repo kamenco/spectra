@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-@8rg&knt2r#g%1ns-nxnw%9p&$i3$(-slgb2_d=_ldg5=aekf#
 DEBUG = os.getenv('DEBUG') == 'True'
 
 
-ALLOWED_HOSTS = ['8000-kamenco-spectra-7qodzt6m82x.ws.codeinstitute-ide.net', 'spectro.herokuapp.com']
+ALLOWED_HOSTS = ['8000-kamenco-spectra-7qodzt6m82x.ws.codeinstitute-ide.net', 'https://spectro-b475a4cbad8c.herokuapp.com/']
 
 # Retrieve the SECRET_KEY
 SECRET_KEY = os.getenv('SECRET_KEY')
