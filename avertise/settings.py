@@ -176,3 +176,10 @@ CSRF_TRUSTED_ORIGINS = [
 LOGIN_REDIRECT_URL = '/account/profile/'
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+import os
+import environ
+
+# Initialize environment variables
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, 'env.py'))
