@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'order',
     'checkout',
     'upload',
+    'product',
 ]
 
 MIDDLEWARE = [
@@ -143,6 +144,11 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',  # Ensure this points to SPECTRA/static
 ]
+
+import os
+
+MEDIA_URL = '/media/'  # URL for serving media files
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Directory to store uploaded files
 
 
 # Default primary key field type
