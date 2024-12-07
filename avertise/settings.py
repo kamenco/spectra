@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@8rg&knt2r#g%1ns-nxnw%9p&$i3$(-slgb2_d=_ldg5=aekf#'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # Other settings...
@@ -176,9 +176,6 @@ CSRF_TRUSTED_ORIGINS = [
 LOGIN_REDIRECT_URL = '/account/profile/'
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-
-import os
-import environ
 
 # Initialize environment variables
 env = environ.Env()
