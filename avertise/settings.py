@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-@8rg&knt2r#g%1ns-nxnw%9p&$i3$(-slgb2_d=_ldg5=aekf#
 DEBUG = os.getenv('DEBUG') == 'True'
 
 
-ALLOWED_HOSTS = ['8000-kamenco-spectra-7qodzt6m82x.ws.codeinstitute-ide.net', 'https://spectro-b475a4cbad8c.herokuapp.com/']
+ALLOWED_HOSTS = [ 'https://spectro-b475a4cbad8c.herokuapp.com/', 'localhost']
 
 # Retrieve the SECRET_KEY
 SECRET_KEY = os.getenv('SECRET_KEY')
@@ -159,7 +159,6 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',  # Ensure this points to SPECTRA/static
 ]
 
-import os
 
 MEDIA_URL = '/media/'  # URL for serving media files
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Directory to store uploaded files
@@ -175,3 +174,5 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 LOGIN_REDIRECT_URL = '/account/profile/'
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
