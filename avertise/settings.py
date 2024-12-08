@@ -22,8 +22,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # Other settings...
@@ -31,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = os.getenv('DEBUG') == 'True'
 
 
-ALLOWED_HOSTS = [ 'https://spectro-b475a4cbad8c.herokuapp.com/', 'localhost']
+ALLOWED_HOSTS = [ 'https://spectro-b475a4cbad8c.herokuapp.com/', '8000-kamenco-spectra-7qodzt6m82x.ws.codeinstitute-ide.net']
 
 # Retrieve the SECRET_KEY
 SECRET_KEY = os.getenv('SECRET_KEY')
@@ -66,6 +64,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -153,11 +152,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
+# Static files URL
 STATIC_URL = '/static/'
 
+# Static files directory (for static files you create)
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',  # Ensure this points to SPECTRA/static
+    BASE_DIR / 'static',  # Ensure this is the correct path to your 'static' folder
 ]
+
+# Static root (for collected static files in production)
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # Use only one definition
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 MEDIA_URL = '/media/'  # URL for serving media files
@@ -175,8 +181,6 @@ CSRF_TRUSTED_ORIGINS = [
 
 LOGIN_REDIRECT_URL = '/account/profile/'
 
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-
 # Initialize environment variables
-env = environ.Env()
-environ.Env.read_env(os.path.join(BASE_DIR, 'env.py'))
+# env = environ.Env()
+# environ.Env.read_env(os.path.join(BASE_DIR, 'env.py'))
