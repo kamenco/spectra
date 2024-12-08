@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DEBUG = os.getenv('DEBUG') == 'True'
 
 
-ALLOWED_HOSTS = [ 'https://spectro-b475a4cbad8c.herokuapp.com/', '8000-kamenco-spectra-7qodzt6m82x.ws.codeinstitute-ide.net']
+ALLOWED_HOSTS = [ 'spectro-b475a4cbad8c.herokuapp.com/', '8000-kamenco-spectra-7qodzt6m82x.ws.codeinstitute-ide.net']
 
 # Retrieve the SECRET_KEY
 SECRET_KEY = os.getenv('SECRET_KEY')
