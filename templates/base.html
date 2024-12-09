@@ -66,8 +66,8 @@
             {% endif %}
           <!-- Navigation Links -->
           <li class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}"><a href="{% url 'home' %}">HOME</a></li>
-          <li class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}"><a href="{% url 'product' %}">PRODUCTS</a></li>
-          <li class="{% if request.resolver_match.url_name == 'order' %}active{% endif %}"><a href="{% url 'order_home' %}">ORDER</a></li>
+          <li class="{% if request.resolver_match.url_name == 'product' %}active{% endif %}"><a href="{% url 'product' %}">PRODUCTS</a></li>
+          <li class="{% if request.resolver_match.url_name == 'order_home' %}active{% endif %}"><a href="{% url 'order_home' %}">ORDER</a></li>
         </ul>
       </div>
     </div>
