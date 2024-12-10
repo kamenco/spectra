@@ -4,9 +4,19 @@
 
 ## Performance of the web page on different devices
 
-![Responsive on phone!](README_ASSETS/responsive.png "Responsive on phone")
+![13" Notebook 1024x800!](README_ASSETS/notebook13.png "Responsive on Notebook 1024x800")
 
-[Click on this link to visit the site on Heroku](https://dinesdj-cb401df90931.herokuapp.com/)
+The site displayed on Notebook 13" 1024x800px.
+
+![ iPad Mini 768x1024!](README_ASSETS/ipadmini.png "Responsive on iPad Mini 768x1024")
+
+The site displayed on iPad Mini 13" 768x1024px.
+
+![iPhone 13 390x844!](README_ASSETS/iphone13.png "Responsive on iPhone 390x844")
+
+The site displayed on iPhone13 390x844px.
+
+[Click on this link to visit the site on Heroku](https://spectro-b475a4cbad8c.herokuapp.com/)
 
 
 # Content
@@ -30,15 +40,15 @@
 
 ## [Wireframe](#wireframe)
 
-Varna Eats is a web application that allows users to view the menu, make reservations, and manage tasks. This project is built using Django and is deployed on Heroku.
+Spectra advertising is a web application that allows users to view the company products displayed on the project page, to sign in, place anorder, make online payments and from his/her profile page to download the finishd project. This project is built using Django and is deployed on Heroku.
 
 ---
 
 ## [UX Description](#ux-description)
 
-This site was designed predominantly for restaurant owners, where they can present their restaurants, the menus, and where they can update the manues using postgres database, they can also add recepies, update recepies and delete recepies with using postgres as a database. Form the application menu, using databaase SQLLIte for development and PostgrsSql for production the owner or the manager of the restaurant can add menu items with photo, text and price. From tasks the manager can add, update tasks and delete tasks. The site has also a interactive javascript map facilitating the customers by showing the restaurant's whereabouts. 
+This site was designed predominantly for advertising agencies and companies as well as freelanced graphic designers, where they showcase their products. From the profile page the owner or manager using the superuser account can view all the placed orders, and update the users' profile by directly uploading ready projects to the user's profile page, while the users can see all the orders they have made in their profile pages. This is achieved by using databases SQLite for development and PostgresSql for production.  
 
-The layout is kept pretty simple, with three pages describing the Bulgarian cuisine, the menu page and the contact page from where the customer can make reservations by filling and sending the form. At the far right is the login button from where the owner or the restaurant manager can log in to update, delete and add recepies of the menu page. From there he can also add tasks, update and delete tasks, helping the management to better organize his business.
+The layout is kept pretty simple, with three pages describing the SPECTRA activities, the product page showing the products and the order page from where the customer can make reservations by filling and sending the form. At the far right is the login button from where the owner or the manager can log in to view all orders and to upload the ready projects. Using this button users and customers can log in and after that they can place orders by describing and choosing their product from the dropdown menu. The payment is mad eby stripe and success page is displayed temporarily in the session and is filed permenantly in the user's profile.
 
 ---
 
@@ -52,37 +62,37 @@ The layout is kept pretty simple, with three pages describing the Bulgarian cuis
 
 
 - CSS3, Bootstrap: Bootstrap container class provides a responsive fixed-width container.
- The row class is used to create a horizontal group of columns.Justify-content-center: This class centers the content horizontally within the row. col-sm-8: sets the width of the content to 8 columns out of a 12-column grid on small and larger devices, and you can adjust it as needed.
- btn-block used to buttons for full-width styling. button classes to btn-primary and btn-danger for better visual distinction.
+ The row class is used to create a horizontal group of columns.
+
 
  Responsive web design is used to resize, and shrink, the content to make it look good on any screen.  Box sizing border box was used to  padding and border of element's total width and height. Media query with breakpoint of 420px was used for the responsiveness of the page. Hover css was used on the nav bar onclicking the login, and also onclicking the buttons in the nav panel.
 
-- JavaScript. Used to provide functionality to my website. Event listener used is to handle form submission and send the form data using EmailJS. Included the EmailJS SDK script in the contact.html file. Javascript was used to embed the google map. JavaScript function confirmDelete was used for the defensive design of the delete task. confirmDelete function is used from base.htm  confirmDeleteRecipe and confirmDeleteTask functions are defined and utilized within individual HTML templates.Onsubmit attribute in the delete form calls confirmDelete(event), which asks for confirmation before submitting the delete form. By clearly defining separate routes and ensuring the JavaScript functions are scoped to specific pages, I avoid collisions between the delete actions on different pages. This approach helps to ensure that both the delete functionality for recipes and tasks work independently without interfering with each other.
+- JavaScript and Stripe technologies are used. JavaScript code integrates Stripe payments in the checkou.html The stripe function initialazes the stripe object using the stripe public key. JavaScript code creates elements and card input using Stripe's predefined style and functionality and attaches the card input to the HTML element.  Submit event listener prevents the default form submission behaviour(using event.preventDefault()), allowng the code to handle the payment asynchronously. JavaScript validates the required fields and if any fields are empty displays an error message. Client's secret is used to confirm the payment, and handles the payment by displaying an error message or success.html page.
 
-- Python3, Datetime, Django libraries are imported in the main python file, settings.py and also in views.py and models.py. SQLAlchemy is installed, PostgreSql is used for the menu database. Database models are defined for Cathegories and tasks.
-The delete_task, add_task, update_task routes are used to correctly handle POST requests to delete, update and add a task and redirect back to the tasks list. Used url_for function to correctly points to the Django routes. Delete_task, update-task, and add_task routes accept the correct HTTP methods (GET, POST). Ensured Unique URLs for Delete Actions. Making sure the URLs for the delete actions in both update_menu.html and update_task.html are distinct. Handling POST Requests: The update_menu function is updated to load recipes at the beginning. If the request is a POST request and the form contains 'add', it adds the new recipe. If the form contains 'delete', it deletes the selected recipe and writes the updated list back to the database.
+
+- Python3, Datetime, Django libraries are imported in the main python file, settings.py and also in views.py and models.py. Whitenoise is installed, PostgreSql is used for the menu database. Database models are defined for Order and Graphic Order. Graphic order is an order for design in a database.Django database models are imported with clsses nd fields. User Model is imported from Django build-in authentication system to associate graphic orders with specific users. This model tracks orders for graphic designs, linking them to specific users. This model will be used to store, retrieve, and manage graphic order data in the Django application.
+The Order model is used for managing and tracking user orders, providing all necessary fields for basic order information. This model links each order to a specific user using foreign key to the user model.
 
 - Github - The cloud based service for hosting repositories for over 73 million developers
 - Git - Used to add, commit and push my changes to the server and to create a repository with the help of The Code Institute template.
 - Favicon.io - Used to source my favicon icons for my website.
 - Google Fonts - Used to source different fonts in my css file. Google font were used Roboto.
-- CoralDraw was used to illustrate this page with the flow chart's logic.
+- CoralDraw was used to create the mockup social medi product page.
 - This page was made with Visual Studio Code on gitpod.io, and for deploying the pages the 
 git add . git commit and git push commands were used.
 - Gitpod.io was used to work on the project.
 - Heroku was used to deploy my site.
-- Cloudinary was used to store the dynamic uploaded pictures.
-- Whitenoise is used to handle tha static and pictures.
+- AWS S3 was used to store the dynamic uploaded pictures.
+- Whitenoise is used to handle tha static files and pictures.
   
 ---
 
 ## [Website Features](#website-features)
 
-- View the menu with various recepies.
-- Make reservations through a contact form.
+- The user is able to view the products with price and product information.
+- The user will be able to log in and view his/her profile page. The logged in users will be able to place an order and make online payments.
 - Login and manage the menu (add, update, delete recipes).
-- Task management functionality including adding, updating, and deleting tasks.
-- Send email for reservations
+- Task management functionality includs login as superuser, viewing all orders and uploading the ready files.
 
 ---
 
@@ -90,24 +100,24 @@ git add . git commit and git push commands were used.
 
 Given more time to invest in the project, I would like to implement some more features: 
 
-- The menu page except menues to have an option for online payment and booking, and also a delivery for home.
-  
-- The form from the contact page should have dropdown menu for date and time of the reservation, also dropdaown for the main course, starters, desserts, so that those booking for functions, celebrations, receptions and parties can fix their menu beforehand online.
-- To fulfil authomatic testing. For now only manual testing is carried out.  
-- This project can target restaurant owners and catering services.
-- This project has a registration link from the login of the customers to be directed to the forum, blog application from where they can make comments of the service. This application will be built in the future.
+- The site can be extended to offer a wide variety of offset printed products like businessn cards, leaflets, posters, cathalogues, local newspapers, selling of souveniers with printed logo of the customers, with included delivery option. 
+- To implement an email sending while submitting the order with payment.
+- The user should be able to log in with their social accounts as many users will be unwilling to make a special registration for this site. The registration with the social accounts will give the management to track their online activity.  
+- JavaScript google map can be embeded to facilitate thu users if they need to find the adress of the company.
+- The users should be able to participate in forum, blog application from where they can make comments of the service. This application will be built in the future.
   
  ---
  
 ## [Agile planning](#agile-planning)
 
-Severel steps were taken into consideration to develop this project. **Requirements** were detailed, **analyses** performed to see what technologies might be used, the **design** was made using bootstrap and CSS combined the **development** was carried out on gitpod.io, **testing** was made only manually, the authomatic testing was abondened due to lack of time. **User stories** were found regarding the usage of the contact submit form, for phones, which are widely used for internet it is difficult, or almost impossible to put the phone numbers with hifens.
-Several development cycles were followed **1st cycle iteration** creating the HTML and CSS structure. **2nd cycle iteration** implementing Django template language and Django. **3rd cycle iteration** creating the Postgres database with menu/views.py, menu/models.py  for the menues. **4th cycle iteration** Creating task application with SQLLite database for development and PostgresSql for production with models for categories and tasks. **5th cycle iteration** Creating the contact page with the submit form. Pure python project was abandoned as too complex and unfeasible, in terms of user and password requirements. Implemented the technology ofEmailjs.com for the form submission.
+Severel steps were taken into consideration to develop this project. **Requirements** were detailed, **analyses** performed to see what technologies might be used, the **design** was made using bootstrap and CSS combined the **development** was carried out on gitpod.io, **testing** was made only manually, the authomatic testing was abondened due to lack of time. **User stories** Represent a small functionality that aims to capture and visualize the value for the end customer. User stories consist of multiple tasks/subtasks. All of that is visualized and managed through interactive Kanban boards.
+Several development cycles were followed **1st cycle iteration** creating the HTML and CSS structure. **2nd cycle iteration** implementing Django template language and Django. **3rd cycle iteration** creating the Postgres database with order/views.py, order/models.py  for the order form. **4th cycle iteration** Creating order application with SQLLite database for development and PostgresSql for production with models for graphic design order. **5th cycle iteration** Creating the checkout model. On submitting the checkout.html emai is not sent to the customer.
 
-![Kanban board!](README_ASSETS/kanban_board.png "Kanban board created with Git Project")
+![Kanban board!](README_ASSETS/kanban.png "Kanban board created with Git Project")
+
 The Agile tool used for this project is Git Project.
 
-[This is the link to Kanban board on github](https://github.com/users/kamenco/projects/8/views/1)
+[This is the link to Kanban board on github](https://github.com/users/kamenco/projects/9/views/1)
 
 ![facebook webpage!](README_ASSETS/mockup.png "facebook webpage mockup")
 
@@ -117,58 +127,57 @@ Dummy social media product page, as demonstrated in the learning material.
 
  ## [Project structure](#project-structure)
 
-    |-- DINESTWO
+    |-- SPECTRA
       |-- accounts/
         |--templates/
           |--login.html
           |--logout.html
           |--registration.html
-      |-- contact/
-        |--templates
-          |--contact.html
-      |-- dines/
-        |--settings.py
-        |--urls.py
-      |-- home/
+      |-- avertise/
+        |-- settings.py
+        |-- urls.py
+      |-- checkout/
+        |-- templates
+          |-- checkout.html
+          |-- success.html
+      |-- home
         |-- templates/
           |-- index.html
         |-- url.py
         |-- views.py
       |-- media/
-        |--  menu_images/
-      |-- menu/
+        |--  images/
+      |-- order/
         |-- templates/
-          |-- menu.html
-          |-- update_menu.html
+          |-- order.html
         |--forms.py
         |-- models.py
         |-- urls.py
         |-- views.py
+      |-- product
+        |-- templates
+          |-- product.html
+        |-- models.py
+        |-- views.py
+        |-- urls.py
       |-- static/
         |-- css/
           |-- style.css
         |-- images/
-      |-- staticfiles/
-        |-- cloudinary/
-        |-- css/
-        |-- images/
-      |-- task/
-        |-- templates/
-          |-- add_task.html
-          |-- tasks.html
-          |-- update_task.html
-        |-- models.py
-        |-- urls.py
-        |-- views.py
-      |-- templates/
+      |-- templates
         |-- base.html
-      |-- gitignore
-      |-- db.sqlite3
+      |-- upload
+        |-- templates
+          |-- all_orders.html
+          |-- upload_completed_work.html
+        |-- models.py
+        |-- views.py
+        |-- urls.py
       |-- env.py
       |-- manage.py
-      |-- Procfile
-      |-- requirements.txt
-      
+      |-- procfile
+      |== requirements.txt
+        
     ---  
     
  ## [Testing and Validation](#testing-and-validation)
@@ -181,7 +190,11 @@ Dummy social media product page, as demonstrated in the learning material.
 
  ![Javascript validation!](README_ASSETS/js_valid.png "Javascript validation")
 
- Javascript validation
+ Javascript validation gives warnings because of these placeholders  {{ ... }}. JavaScript inteprets them as invalid JavaScript  syntax, because it is a placeholder for serverside template rendering. When replaced with this it is OK.
+
+                    const stripe = Stripe('your_public_key_here');
+                    const { error, paymentIntent } = await stripe.confirmCardPayment('your_client_secret_here', {
+
 
 ---
 Stripe submission validation.
@@ -195,7 +208,7 @@ Validation from stripe.com for adding the endpoint with added events.
  Python validation
 
 Python is validated on CI Python linter The HTML and CSS coding was tested on https://validator.w3.org
- ![Python validation!](README_ASSETS/pyt_valid.png "Python validation")
+ ![Python validation!](README_ASSETS/pyth_valid.png "Python validation")
  
 ---
 
@@ -203,7 +216,20 @@ The page is tested on different browsers Chrome, Firefox, Safari, Opera. The pag
 For testing accesibility and SEO and Best Practices, I used Lighthouse in Dev tools. 
 Lighthouse runs an audit of your website and feeds back a set of scores for accessibility, SEO and best practices among others.
 
-![Checked on lighthouse!](README_ASSETS/light_valid.png "Python validation")
+![Checked on lighthouse!](README_ASSETS/light_valid.png "Lighthouse validation")
+
+Lighthouse testing.
+
+This is python automatic testing.
+
+                  import smtplib
+
+                  with smtplib.SMTP("smtp.gmail.com", 587) as server:
+                  server.starttls()  # No extra arguments here
+                  server.login("kamenkirov59@gmail.com", "EMAIL_HOST_PASS")
+                  print("Connected successfully.")
+
+Python testing that uses smtplib module to establish a connection with Gmail's SMTP server for sending emails.  smtplib provides a wayto send emailsusing the Simple Mail Transfer Protocol (SMTP) It includes methods for establishing connections with an SMTP server, logging in and sending messages.
 
 ---
 ## [Bugs and Issues](#bugs-and-issues)
