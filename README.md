@@ -105,6 +105,9 @@ Given more time to invest in the project, I would like to implement some more fe
 - The user should be able to log in with their social accounts as many users will be unwilling to make a special registration for this site. The registration with the social accounts will give the management to track their online activity.  
 - JavaScript google map can be embeded to facilitate thu users if they need to find the adress of the company.
 - The users should be able to participate in forum, blog application from where they can make comments of the service. This application will be built in the future.
+- To style the profile page with bootstarp.
+- To place an link from the user profile to the home page or the order page.
+- To start paid marketing in Facebook with annotation and link to my website. Day limit of $1.
   
  ---
  
@@ -272,24 +275,21 @@ This bug was tested with python test.
 
 This codes shows that the template all_orders.html does not exist. The bug was resolved after deleting all_orders.html and creating a new file all_orders.html, which shows that the file was somehow corrupted.
 
-![Task undefined issue!](README_ASSETS/crash.png  "Task undefined bug")
-This bug appeared because the Pillow has been installed but has not been freezed in the requirements.txt After adding Pillow to the requirements.txt the issue was resolved.
-
 
 ---
 
 ## [404.html](#notfound-page)
 
-![404.html!](README_ASSETS/404.png "Page not found redirects the customer to the home page")
+![404.html!](README_ASSETS/494.png "Page not found redirects the customer to the home page")
 
-Django configuration to use the Custom 404.html page. In settings.py DEBUG=False in production mode, and ALLOED_HOSTS=['https://dinesdj-cb401df90931.herokuapp.com/', 'localhost']
+Django configuration to use the Custom 404.html page. In settings.py DEBUG=False in production mode, and ALLOED_HOSTS=['https://spectro-b475a4cbad8c.herokuapp.com/', 'localhost']
 
  - ---
 
 ## [Deployment](#deployment)
 
-Cloudinary storing the pictures that are dynamically uploaded by the user.
-API_KEY, API_SECRET and CLOUDINARY_NAME  used from cloudinary.com and implemented into the web site.
+AWS S3 storing the pictures that are dynamically uploaded by the user.
+AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY  used from AWS S3 and implemented into the web site.
 
 Heroku deployment
 To deploy Your App to Heroku, you have to :
@@ -329,19 +329,19 @@ To deploy Your App to Heroku, you have to :
 
  The idea for the bootstrap design was taken from https://www.w3schools.com/.
  
- This site was build with the help of www.chatgpt.com, but most important with the lectures of www.codeinstitute.net and namly the lectures for emailjs.com and the task application.
+ This site was build with the help of www.chatgpt.com, but most important with the lectures of www.codeinstitute.net and namly the lectures for boutique-ado and the checkout application.
  
- Pictures recepies and links for the pictures were taken from www.bgtown.com
+ Pictures recepies and links for the pictures were taken from www.pexel.com
  
  Some of the styling was made with the help of www.bootstrap.com 
  
- The chef's logo was taken free from https://logo.com/
+ The company logo was taken free from https://logo.com/
  
  The photos were taken from www.pexels.com
  
-The idea for the site was accepted from the Code Institute reccomendation for project 4. 
+The idea for the site was accepted from the Code Institute reccomendation for project 5. 
 
-This side is used with the help of Codeacademy's course and the help of the tutors and facilitators, and mentors. Special thanks to facilitator Laura for sending me useful links for testing, thanks to my tutor Mr. Medale. Special thanks to all the tutors, I will mention the names of the last two as I can remember only their names Rebecca and Tom, but there were several other tutors that helped a lot.
+This side is used with the help of Codeacademy's course and the help of the tutors and facilitators, and mentors. Special thanks to facilitator Laura for sending me useful links for testing, thanks to my tutor Mr. Medale. Special thanks to all the tutors, I will mention the names of the last two as I can remember only their names Rebecca and Roman, but there were several other tutors that helped a lot.
 
 [Back to top](#wireframe)
 
