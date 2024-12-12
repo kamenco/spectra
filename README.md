@@ -1,6 +1,6 @@
 
 
-# Varna Eats - Restaurant
+# SPECTRA Advertising
 
 ## Performance of the web page on different devices
 
@@ -70,7 +70,7 @@ The layout is kept pretty simple, with three pages describing the SPECTRA activi
 - JavaScript and Stripe technologies are used. JavaScript code integrates Stripe payments in the checkou.html The stripe function initialazes the stripe object using the stripe public key. JavaScript code creates elements and card input using Stripe's predefined style and functionality and attaches the card input to the HTML element.  Submit event listener prevents the default form submission behaviour(using event.preventDefault()), allowng the code to handle the payment asynchronously. JavaScript validates the required fields and if any fields are empty displays an error message. Client's secret is used to confirm the payment, and handles the payment by displaying an error message or success.html page.
 
 
-- Python3, Datetime, Django libraries are imported in the main python file, settings.py and also in views.py and models.py. Whitenoise is installed, PostgreSql is used for the menu database. Database models are defined for Order and Graphic Order. Graphic order is an order for design in a database.Django database models are imported with clsses nd fields. User Model is imported from Django build-in authentication system to associate graphic orders with specific users. This model tracks orders for graphic designs, linking them to specific users. This model will be used to store, retrieve, and manage graphic order data in the Django application.
+- Python3, Datetime, Django libraries are imported in the main python file, settings.py and also in views.py and models.py. Whitenoise is installed, PostgreSql is used for the order database. Database models are defined for Order and Graphic Order. Graphic order is an order for design in a database.Django database models are imported with clsses and fields. User Model is imported from Django build-in authentication system to associate graphic orders with specific users. This model tracks orders for graphic designs, linking them to specific users. This model will be used to store, retrieve, and manage graphic order data in the Django application.
 The Order model is used for managing and tracking user orders, providing all necessary fields for basic order information. This model links each order to a specific user using foreign key to the user model.
 
 - Github - The cloud based service for hosting repositories for over 73 million developers
@@ -91,8 +91,8 @@ git add . git commit and git push commands were used.
 
 - The user is able to view the products with price and product information.
 - The user will be able to log in and view his/her profile page. The logged in users will be able to place an order and make online payments.
-- Login and manage the menu (add, update, delete recipes).
-- Task management functionality includs login as superuser, viewing all orders and uploading the ready files.
+- Login and place an order and pay. Manage his/her orders (download the ready orderss).
+- Order management functionality includs login as superuser, viewing all orders and uploading the ready files.
 
 ---
 
@@ -284,7 +284,7 @@ This codes shows that the template all_orders.html does not exist. The bug was r
 
 Django configuration to use the Custom 404.html page. In settings.py DEBUG=False in production mode, and ALLOED_HOSTS=['https://spectro-b475a4cbad8c.herokuapp.com/', 'localhost']
 
- - ---
+ ----
 
 ## [Deployment](#deployment)
 

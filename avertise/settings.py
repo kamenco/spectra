@@ -44,6 +44,8 @@ if not SECRET_KEY:
 STRIPE_PUBLIC_KEY=os.getenv('STRIPE_PUBLIC_KEY')
 STRIPE_SECRET_KEY=os.getenv('STRIPE_SECRET_KEY')
 
+# AWS keys
+
 AWS_STORAGE_BUCKET_NAME = 'spectrakamen'
 AWS_S3_REGION_NAME = 'eu-central-1'  
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
