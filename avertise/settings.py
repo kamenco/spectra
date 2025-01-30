@@ -14,7 +14,7 @@ import os
 import dj_database_url
 from pathlib import Path
 from django.core.exceptions import ImproperlyConfigured
-
+import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,14 +29,27 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 DEBUG = os.getenv('DEBUG') == 'True'
 
+ALLOWED_HOSTS = [
+    "spectro-b475a4cbad8c.herokuapp.com",
+    "kamenco-spectra-s2g3qza1ido.ws-eu117.gitpod.io",
+    "8000-kamenco-spectra-s2g3qza1ido.ws-eu117.gitpod.io",
+    "127.0.0.1",
+    "localhost",
+]
 
-ALLOWED_HOSTS = [ 'spectro-b475a4cbad8c.herokuapp.com', '8000-kamenco-spectra-7qodzt6m82x.ws.codeinstitute-ide.net']
 
 # Retrieve the SECRET_KEY
-SECRET_KEY = os.getenv('SECRET_KEY')
+# SECRET_KEY = os.getenv('SECRET_KEY')
 
-if not SECRET_KEY:
-    raise ImproperlyConfigured("The SECRET_KEY must not be empty.")
+# if not SECRET_KEY:
+    # raise ImproperlyConfigured("The SECRET_KEY must not be empty.")
+# Retreave the SECRET_KEY
+import os
+if os.path.exists("env.py"):
+    import env
+
+SECRET_KEY = os.environ.get("SECRET_KEY")
+DATABASE_URL = os.environ.get("DATABASE_URL")
 
 
 # stripe keys
@@ -184,11 +197,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Directory to store uploaded file
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-kamenco-spectra-7qodzt6m82x.ws.codeinstitute-ide.net'
+    "https://spectro-b475a4cbad8c.herokuapp.com",
+    "https://kamenco-spectra-s2g3qza1ido.ws-eu117.gitpod.io",
 ]
+
 
 LOGIN_REDIRECT_URL = '/account/profile/'
 
 # Initialize environment variables
 # env = environ.Env()
 # environ.Env.read_env(os.path.join(BASE_DIR, 'env.py'))
+
+USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
