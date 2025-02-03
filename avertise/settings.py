@@ -31,9 +31,7 @@ DEBUG = os.getenv('DEBUG') == 'True'
 
 ALLOWED_HOSTS = [
     "spectro-b475a4cbad8c.herokuapp.com",
-    "kamenco-spectra-s2g3qza1ido.ws-eu117.gitpod.io",
-    "8000-kamenco-spectra-s2g3qza1ido.ws-eu117.gitpod.io",
-    "127.0.0.1",
+    "8000-kamenco-spectra-9jo4zn65gvr.ws-eu117.gitpod.io",
     "localhost",
 ]
 
@@ -198,7 +196,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = [
     "https://spectro-b475a4cbad8c.herokuapp.com",
-    "https://kamenco-spectra-s2g3qza1ido.ws-eu117.gitpod.io",
+    "https://kamenco-spectra-9jo4zn65gvr.ws-eu117.gitpod.io",
 ]
 
 
