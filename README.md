@@ -26,15 +26,16 @@ The site displayed on iPhone13 390x844px.
 1. [Wireframe](#wireframe)
 2. [UX Description](#ux-description)
 3. [Technologies used](#technologies-used)
-4. [Website Features](#website-features)
-5. [Features to implement](#other-features)
-6. [Agile palnning](#agile-planning)
-7. [Project structure](#project-structure)
-8. [Testing and Validation](#testing-and-validation)
-9. [Bugs and Issues](#bugs-and-issues)
-10. [404 page](#notfound-page)
-11. [Deployment](#deployment)
-12. [Credits](#credits)
+4. [Utilization of SEO](#searchengine-optimization)
+5. [Website Features](#website-features)
+6. [Features to implement](#other-features)
+7. [Agile palnning](#agile-planning)
+8. [Project structure](#project-structure)
+9. [Testing and Validation](#testing-and-validation)
+10. [Bugs and Issues](#bugs-and-issues)
+11. [404 page](#notfound-page)
+12. [Deployment](#deployment)
+13. [Credits](#credits)
 
 ---
 
@@ -86,6 +87,11 @@ git add . git commit and git push commands were used.
 - Whitenoise is used to handle tha static files and pictures.
   
 ---
+
+## [Utilization of SEO](#searchengine-optimization)
+
+Keyword reserach has been made on google.com and on the wordtracker.com and the words with high volume and low competion have been chosen. Short-tail and long-tail have been investigated as the short-term keywords are one or two words long while the long-tail phrases are a prase or a sentence. From the short-tail words have been chosen leaflets. catalogues, business cards, printed advertisment, offset printing, souveniers, calendars,flyers, and advertisment. All these have been included in the head of base.html with metatag name="keywords". From the long-tail phrases have been chosen Advertisment, offset and digital, Advertising materials, Print adverts, Digital adverts, Print advertisment, Digital advertisment, Star advertiser. These phrases have been included in the head of base.html with metatag name="description". According to the testing of wordtracker.com the best short-tale keyword based on the principal high-volume, low-cometition with volume 201 000 Competition 52 is **advertisment** and from the long-tail phrases based on the same principal is  **Printing, offset and digital**.
+
 
 ## [Website Features](#website-features)
 
