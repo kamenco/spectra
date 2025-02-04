@@ -29,6 +29,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('upload/', include('upload.urls')),
     path('product/', include('product.urls')),
+    path("subscribe/", include("subscribe.urls")), 
 ]
 
 if settings.DEBUG:
