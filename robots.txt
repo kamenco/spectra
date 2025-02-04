@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /account/
+Sitemap: https://spectro-b475a4cbad8c.herokuapp.com/sitemap.xml
