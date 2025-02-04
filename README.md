@@ -114,6 +114,7 @@ Given more time to invest in the project, I would like to implement some more fe
 - To style the profile page with bootstarp.
 - To place an link from the user profile to the home page or the order page.
 - To start paid marketing in Facebook with annotation and link to my website. Day limit of $1.
+- To create links to other relevant websites, such as links to shops selling functionary materials like calendars, advertising souveniers. Links to photo album sites, linkns to artists creating logos and photographers with good quality photos. 
   
  ---
  
