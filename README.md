@@ -43,6 +43,93 @@ The site displayed on iPhone13 390x844px.
 
 Spectra advertising is a web application that allows users to view the company products displayed on the project page, to sign in, place anorder, make online payments and from his/her profile page to download the finishd project. This project is built using Django and is deployed on Heroku.
 
+Here is the schema for the website:  This schema represents the database structure of the website, detailing how users, orders, and completed work interact. Below is a breakdown of each model and their relationships.
+
+#### User (Django Auth)
+
+This is the default Django authentication model, representing users who can place orders on the website.
+
+Users can:
+ - Place **Graphic Orders**
+ - Place **Checkout Orders**
+ - Download their **Completed Work** once uploaded by the superuser
+
+Relationships
+  - 1:N Relationship with GraphicOrder → A user can place multiple graphic orders.
+  - 1:N Relationship with Order → A user can place multiple checkout orders
+
+#### GraphicOrder (Order App)
+
+This model stores details of custom graphic orders placed by users.
+
+
+Fields:
+
+              type (CharField) → Type of graphic order (Logo, Leaflet, Poster).
+              size (CharField) → Dimensions of the requested graphic.
+              description (TextField) → Details about the design.
+              quote (DecimalField) → Price estimate for the order.
+              status (CharField) → Default is "Pending".
+              created_at (DateTimeField) → Timestamp of when the order was placed.
+
+Relationships
+  - 1:N Relationship with User → A user can have multiple orders.
+  - 1:1 Relationship with Order → A graphic order links to a specific checkout order for payment.
+
+#### Order (Checkout App)
+
+This model represents a confirmed order, processed for payment.
+
+Fields:
+
+              order_type (CharField) → Type of order (Logo, Leaflet, etc.).
+              description (TextField) → Order details.
+              price (DecimalField) → Total cost of the order.
+              created_at (DateTimeField) → Timestamp of order creation.
+
+Relationships
+
+  - 1:N Relationship with User → A user can have multiple checkout orders.
+  - 1:1 Relationship with CompletedWork → Each order can have one completed work uploaded by the superuser.
+
+#### CompletedWork (Upload App)
+
+This model stores completed projects that the superuser uploads for the user.
+
+Fields:
+
+              file (FileField) → Uploaded file of the completed project.
+              uploaded_at (DateTimeField) → Timestamp of when the project was uploaded.
+
+Relationships
+
+  - 1:1 Relationship with Order → Each completed work belongs to a specific order.
+
+
+Permissions
+
+Superuser:
+
+  - Can upload completed work for an order.
+
+User:
+  - Can download their completed work once uploaded.
+
+
+Workflow Summary
+
+  - User places a Graphic Order → The order is stored in GraphicOrder.
+
+  - User makes payment → An Order record is created in the checkout system.
+
+  - Superuser uploads the completed work → The file is stored in CompletedWork, linked to the order.
+
+  - User downloads their completed work → They access their completed project from the site.
+
+This schema ensures a structured approach to managing orders, payments, and file uploads while maintaining clear permissions.
+
+![Website schema!](README_ASSETS/website_schema_updated.jpg "The schema for the website")
+
 ---
 
 ## [UX Description](#ux-description)
@@ -91,6 +178,8 @@ git add . git commit and git push commands were used.
 ## [Utilization of SEO](#searchengine-optimization)
 
 Keyword reserach has been made on google.com and on the wordtracker.com and the words with high volume and low competion have been chosen. Short-tail and long-tail have been investigated as the short-term keywords are one or two words long while the long-tail phrases are a prase or a sentence. From the short-tail words have been chosen leaflets. catalogues, business cards, printed advertisment, offset printing, souveniers, calendars,flyers, and advertisment. All these have been included in the head of base.html with metatag name="keywords". From the long-tail phrases have been chosen Advertisment, offset and digital, Advertising materials, Print adverts, Digital adverts, Print advertisment, Digital advertisment, Star advertiser. These phrases have been included in the head of base.html with metatag name="description". According to the testing of wordtracker.com the best short-tale keyword based on the principal high-volume, low-cometition with volume 201 000 Competition 52 is **advertisment** and from the long-tail phrases based on the same principal is  **Printing, offset and digital**.
+
+sitemap.xml file was created at www.xml-sitemap.com and robots.txt was created banishing the crawling machine to crawl the account application. The site has been registered with google at https://search.google.com
 
 
 ## [Website Features](#website-features)
