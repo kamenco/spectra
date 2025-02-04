@@ -6,5 +6,19 @@
 <p class = "text">We specialize in graphic design, creating of posters, leaflets, business cards, book covers, stickers, digital and offset printing. Logo prints on souvenirs, design of wall and desk calendars.To make an order please register and place an order. Thanks</p>
 <p class = "text">We specialize in graphic design, creating of posters, leaflets, business cards, book covers, stickers, digital and offset printing. Logo prints on souvenirs, design of wall and desk calendars.To make an order please register and place an order. Thanks</p>
 
+<!-- Centered Subscription Form within Index Page -->
+<div class="container d-flex justify-content-center">
+  <div class="col-md-6 col-lg-5 mt-5 mb-5">
+      <form method="POST" action="{% url 'subscribe' %}" class="p-4 border rounded shadow bg-white">
+          {% csrf_token %}
+          <h3 class="text-center mb-3">Subscribe Now</h3>
+          <p class="text-center">Get a free New Year wall calendar at Christmas!</p>
+          <input type="email" name="email" class="form-control mb-3" placeholder="Enter your email..." required>
+          <button type="submit" class="btn btn-primary w-100">Subscribe</button>
+      </form>
+  </div>
+</div>
+
+
 
   {% endblock %}
