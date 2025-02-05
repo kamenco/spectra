@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import SubscriptionForm
-
+from django.contrib.admin.views.decorators import staff_member_required
+from .models import Subscriber
 
 # Create your views here.
 
@@ -19,4 +20,13 @@ def subscribe(request):
 
 def subscribe_success(request):
     return render(request, "subscribe/success.html")
+
+# Added the subscribers
+
+
+@staff_member_required
+def view_subscribers(request):
+    subscribers = Subscriber.objects.all()
+    return render(request, 'subscribe/view_subscribers.html', {'subscribers': subscribers})
+
 

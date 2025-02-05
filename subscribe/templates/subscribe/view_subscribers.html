@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Subscribed Emails</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Subscription Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for subscriber in subscribers %}
+            <tr>
+                <td>{{ subscriber.email }}</td>
+                <td>{{ subscriber.subscribed_at }}</td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="2">No subscriptions yet.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
