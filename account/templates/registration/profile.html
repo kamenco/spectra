@@ -6,6 +6,29 @@
 {% if user.is_superuser %}
     <p>You are a superuser. Manage your site in the <a href="/admin/">Admin Panel</a>.</p>
     <p>View and manage all orders: <a href="{% url 'view_all_orders' %}">All Orders</a></p>
+    <p>View and manage subscribed emails: <a href="{% url 'view_subscribers' %}">Subscribed Emails</a></p>
+
+    <h2>Subscribed Emails</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Subscription Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for subscriber in subscribed_emails %}
+                <tr>
+                    <td>{{ subscriber.email }}</td>
+                    <td>{{ subscriber.subscribed_at }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="2">No subscriptions yet.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% else %}
     <p>This is your user profile page.</p>
 {% endif %}
