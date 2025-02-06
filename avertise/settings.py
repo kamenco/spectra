@@ -42,7 +42,12 @@ ALLOWED_HOSTS = [
 # if not SECRET_KEY:
     # raise ImproperlyConfigured("The SECRET_KEY must not be empty.")
 # Retreave the SECRET_KEY
+
+# This ensures that Heroku does not try to import env.py 
+# since the file is only present in your local development environment.
+
 import os
+
 if os.path.exists("env.py"):
     import env
 
