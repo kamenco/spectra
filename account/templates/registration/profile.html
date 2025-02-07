@@ -1,7 +1,7 @@
 <h1>Welcome, {{ user.username }}</h1>
 <p>Email: {{ user.email }}</p>
 <p>You're logged in!</p>
-<p>This is the profile template.</p>
+<p>This is your profile page.</p>
 
 {% if user.is_superuser %}
     <p>You are a superuser. Manage your site in the <a href="/admin/">Admin Panel</a>.</p>
@@ -29,43 +29,49 @@
             {% endfor %}
         </tbody>
     </table>
-{% else %}
-    <p>This is your user profile page.</p>
 {% endif %}
 
-<h2>Your Orders</h2>
-<table>
-    <thead>
-        <tr>
-            <th>Order Type</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Date</th>
-            <th>Completed Work</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for order in orders %}
+{% if not user.is_superuser or orders %}
+    <h2>Your Orders</h2>
+    <table>
+        <thead>
             <tr>
-                <td>{{ order.order_type }}</td>
-                <td>{{ order.description }}</td>
-                <td>${{ order.price }}</td>
-                <td>{{ order.created_at }}</td>
-                <td>
-                    {% if order.completed_work and order.completed_work.file %}
-                        <a href="{{ order.completed_work.file.url }}" download>Download</a>
-                    {% else %}
-                        Not available
-                    {% endif %}
-                </td>
+                <th>Order Type</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Date</th>
+                <th>Completed Work</th>
             </tr>
-        {% empty %}
-            <tr>
-                <td colspan="5">You have no orders yet.</td>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+                {% if user.is_superuser or order.user == user %}
+                    <tr>
+                        <td>{{ order.order_type }}</td>
+                        <td>{{ order.description }}</td>
+                        <td>${{ order.price }}</td>
+                        <td>{{ order.created_at }}</td>
+                        <td>
+                            {% if order.completed_work and order.completed_work.file %}
+                                <a href="{{ order.completed_work.file.url }}" download>Download</a>
+                            {% else %}
+                                Not available
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endif %}
+            {% empty %}
+                {% if not user.is_superuser %}
+                    <tr>
+                        <td colspan="5">You have no orders yet.</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+
+<p>Go to home page: <a href="{% url 'home' %}">Home page</a></p>
 
 <form method="post" action="{% url 'logout' %}">
     {% csrf_token %}
