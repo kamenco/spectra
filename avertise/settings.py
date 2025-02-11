@@ -84,6 +84,7 @@ INSTALLED_APPS = [
     'upload',
     'product',
     'subscribe',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -227,8 +228,8 @@ AWS_S3_REGION_NAME = 'eu-west-1'  # e.g., 'us-east-1', 'eu-west-1'
 
 # Static and Media Files Storage
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/'
-
+MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com/'
+MEDIA_ROOT = 'media/'
 # For storage of sttic files on S3
 
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
